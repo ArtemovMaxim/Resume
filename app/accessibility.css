@@ -1,0 +1,133 @@
+/* Стили для доступности */
+
+/* Базовые настройки */
+:root {
+  --accessibility-font-size: 100%;
+  --accessibility-line-height: 1.5;
+  --accessibility-letter-spacing: 0px;
+}
+
+/* Применение настроек к тексту */
+body {
+  font-size: var(--accessibility-font-size);
+  line-height: var(--accessibility-line-height);
+  letter-spacing: var(--accessibility-letter-spacing);
+}
+
+/* Высокий контраст */
+.high-contrast {
+  --background: 0 0% 100%;
+  --foreground: 0 0% 0%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 0%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 0%;
+
+  --primary: 0 0% 0%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 90%;
+  --secondary-foreground: 0 0% 0%;
+
+  --muted: 0 0% 90%;
+  --muted-foreground: 0 0% 0%;
+
+  --accent: 0 0% 90%;
+  --accent-foreground: 0 0% 0%;
+
+  --destructive: 0 100% 30%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 0%;
+  --input: 0 0% 0%;
+  --ring: 0 0% 0%;
+}
+
+.high-contrast.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+
+  --card: 0 0% 0%;
+  --card-foreground: 0 0% 100%;
+
+  --popover: 0 0% 0%;
+  --popover-foreground: 0 0% 100%;
+
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 100%;
+
+  --accent: 0 0% 10%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 0%;
+
+  --border: 0 0% 100%;
+  --input: 0 0% 100%;
+  --ring: 0 0% 100%;
+}
+
+/* Инвертированный контраст */
+.inverted-contrast {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+/* Шрифт для дислексии */
+.dyslexic-font {
+  font-family: "OpenDyslexic", sans-serif;
+  letter-spacing: 0.2em;
+  word-spacing: 0.4em;
+}
+
+/* Уменьшенное движение */
+.reduced-motion * {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
+
+/* Улучшенный фокус */
+*:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+
+/* Пропуск навигации */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Улучшенная читаемость для ссылок */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Улучшенная видимость для кнопок */
+button:focus-visible,
+[role="button"]:focus-visible {
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--primary));
+}
+
